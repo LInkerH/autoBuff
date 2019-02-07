@@ -13,20 +13,41 @@
 (function() {
     'use strict';
 window.onload = function(){
-				/*var father = document.getElementById("bot-status");                          //buff  部分
-				var href = father.getElementsByTagName("a");
-				console.log(href.length);
+               var reg_buff =/https:\/\/buff.163.com\/market\/sell_order/i;
+              var reg_steam = /tradeoffer\/[0-9]{10}/i;
+               var url = location.href;
+    if(reg_buff.test(url))
+    {
+				var father = document.getElementById("bot-status");                          //buff  部分
+				 var href = father.getElementsByTagName("a");
 				for(var i = 0;i<href.length;i++)
 				{
 					window.open(href[i]);
-				}*/
-      var content = document.getElementById("you_notready");        //steam部分---------接受报价
-      content.click();
-   setTimeout(function(){var span = document.getElementsByClassName("btn_green_white_innerfade btn_medium");            // ---------确认
+                    
+				}
+    }
+    if(reg_steam.test(url))
+    {
+              // var reg_steam2 = new RegExp(reg_steam.exec(href[i]),"i");
+                    //console.log(reg_steam2);
+
+
+
+                    var content = document.getElementById("you_notready");        //steam部分---------接受报价
+                    content.click();
+                 setTimeout(function(){var span = document.getElementsByClassName("btn_green_white_innerfade btn_medium");            // ---------确认
 				span[0].children[0].click();},50);
 
 
- setTimeout(function(){ var accept = document.getElementById("trade_confirmbtn_text"); //   ---------接受交易
-			accept.click();},50);
+               setTimeout(function(){ var accept = document.getElementById("trade_confirmbtn_text"); //   ---------接受交易
+			   accept.click();},50);
+
+    }
+
+  
+
+
+
+
 }
   })();
