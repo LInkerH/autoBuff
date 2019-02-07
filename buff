@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         moneyMoney
 // @namespace    out
-// @version      0.1
+// @version      0.2
 // @description  take all
 // @author       Linker
 // @match        *://buff.163.com/*
@@ -16,15 +16,30 @@ window.onload = function(){
                var reg_buff =/https:\/\/buff.163.com\/market\/sell_order/i;
               var reg_steam = /tradeoffer\/[0-9]{10}/i;
                var url = location.href;
+
     if(reg_buff.test(url))
     {
-				var father = document.getElementById("bot-status");                          //buff  部分
+
+         var son = document.getElementById("search-category")
+			var father1 = son.parentNode;
+			var btn = document.createElement("button");
+               var text = document.createTextNode("点击发货");
+                btn.appendChild(text);
+               father1.appendChild(btn);
+               btn.style.cssText='position:relative;left :600px;top:-28px ;width: 100px ;height:31.9px;';
+
+               btn.onclick = function(){var father = document.getElementById("bot-status");                          //buff  部分
 				 var href = father.getElementsByTagName("a");
+                   console.log(href.length);
 				for(var i = 0;i<href.length;i++)
 				{
 					window.open(href[i]);
-                    
+
 				}
+                                       };
+
+
+
     }
     if(reg_steam.test(url))
     {
