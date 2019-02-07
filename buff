@@ -1,0 +1,32 @@
+// ==UserScript==
+// @name         moneyMoney
+// @namespace    out
+// @version      0.1
+// @description  take all
+// @author       Linker
+// @match        *://buff.163.com/*
+ // @match       *://steamcommunity.com/*
+// @grant        GM_xmlhttpRequest
+// @grant        GM_openInTab
+// ==/UserScript==
+
+(function() {
+    'use strict';
+window.onload = function(){
+				/*var father = document.getElementById("bot-status");                          //buff  部分
+				var href = father.getElementsByTagName("a");
+				console.log(href.length);
+				for(var i = 0;i<href.length;i++)
+				{
+					window.open(href[i]);
+				}*/
+      var content = document.getElementById("you_notready");        //steam部分---------接受报价
+      content.click();
+   setTimeout(function(){var span = document.getElementsByClassName("btn_green_white_innerfade btn_medium");            // ---------确认
+				span[0].children[0].click();},50);
+
+
+ setTimeout(function(){ var accept = document.getElementById("trade_confirmbtn_text"); //   ---------接受交易
+			accept.click();},50);
+}
+  })();
